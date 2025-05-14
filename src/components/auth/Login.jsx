@@ -1,9 +1,15 @@
 import axios from "axios";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
 function Login() {
   const navigate = useNavigate();
+  useEffect(()=>{
+    if (localStorage.getItem('isAuthenticated') === 'true') {
+      navigate('/home')
+    }
+
+  },[navigate])
   const [User,setUser] = useState({
     name:'',
     password:''
@@ -24,6 +30,16 @@ function Login() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5002/login/user',User)
+      
+        if (response.status == 202) {
+          localStorage.setItem('isAuthenticated',true)
+          const data = await response.data.user
+          localStorage.setItem('name',data)
+          
+
+        }
+        
+      
       navigate('/home')
       
     }

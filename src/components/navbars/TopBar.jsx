@@ -1,19 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function TopBar() {
   return (
     <>
-    <nav>
-        <ul>
+    <nav className='flex '>
+        <ul className='list-none'>
             <li>Ride With Us</li>
         </ul>
         <ul>
-            <li><form method="post">
+            <li>
                 
-                <button>logout</button></form></li>
+                <Link to={`/logout`}>logout</Link>
+                </li>
         </ul>
     </nav>
-    
+  
     </>
   )
 }

@@ -3,6 +3,10 @@ import React from 'react'
 import Login from "../components/auth/login";
 import SignUp from "../components/auth/signup";
 import User from "../components/dashboards/user";
+import Bookings from "../components/views/bookings";
+import Update from "../components/views/Update";
+import Delete from "../components/views/delete";
+import Logout from "../components/auth/Logout";
 
 function RoutesPage() {
   return (
@@ -10,7 +14,11 @@ function RoutesPage() {
     <Routes>
         <Route path="/" element={<Login/>} />
         <Route path="/home" element={<User/>} />
+        <Route path="/edit/:id" element={<Update/>} />
+        <Route path="/rides" element={<Bookings/>} />
         <Route path="/signup" element={<SignUp/>} />
+        <Route path="/logout" element={<Logout/>} />
+        <Route path="/delete/:id" element={<Delete/>} />
     </Routes>
     </BrowserRouter>
   )
