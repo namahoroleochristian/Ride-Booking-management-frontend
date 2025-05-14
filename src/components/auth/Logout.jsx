@@ -5,6 +5,7 @@ function Logout() {
   const navigate = useNavigate()
   useEffect(()=>{
     localStorage.setItem('isAuthenticated',false)
+    localStorage.setItem('role',null)
     navigate('/')
   })
 }

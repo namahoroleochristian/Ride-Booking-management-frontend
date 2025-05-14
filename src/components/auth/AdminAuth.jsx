@@ -2,12 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import AuthBar from "../navbars/AuthBar";
+import AdminBar from "../navbars/AdminBar";
 
 function AdminAuth() {
   const navigate = useNavigate();
   useEffect(()=>{
-    if (localStorage.getItem('isAuthenticated') === 'true') {
-      navigate('/home')
+    if (localStorage.getItem('role') === 'Admin') {
+      navigate('/admin/home')
     }
 
   },[navigate])
@@ -36,7 +37,7 @@ function AdminAuth() {
         if (response.status == 202) {
           localStorage.setItem('isAuthenticated',true)
           const data = await response.data.user
-          localStorage.setItem('name',data)
+        //   localStorage.setItem('name',data)
           localStorage.setItem('role','Admin')
           
 
@@ -57,7 +58,7 @@ function AdminAuth() {
   }
   return (
     <>
-    <AuthBar/>
+    <AdminBar/>
     
     <form onSubmit={HandleSubmit} className="RideForm">
         <h2>Login</h2>
