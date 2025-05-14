@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import AuthBar from '../navbars/AuthBar';
 
 function Signup() {
   const [User,setUser] = useState({
@@ -42,18 +43,22 @@ function Signup() {
 
 
   return (
-   <form onSubmit={HandleSubmit}>
+    <>
+    <AuthBar/>
+   <form onSubmit={HandleSubmit} className="RideForm">
     {/* <select  onChange={HandleRole} value={User.role}>
       <option value="user">user</option>
       <option value="Admin">Other</option>
       <option value="driver">driver</option>
-    </select> */}
-    <input type="text"  onChange={HandleName}/>
-    <input type="password"   onChange={HandlePassword}/>
+      </select> */}
+    <h2>Sign Up form</h2>
+    <input type="text"  onChange={HandleName} placeholder='enter your name'/>
+    <input type="password"   onChange={HandlePassword} placeholder='enter your password'/>
     <button type='submit'>submit</button>
             <p>already have an account <Link to='/'>Login</Link></p>
     
    </form>
+      </>
   )
 }
 

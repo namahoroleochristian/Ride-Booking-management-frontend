@@ -82,25 +82,36 @@ const HandleBooking = async (e)=>{
   return (
     <>
 
-        <form onSubmit={HandleBooking}>
-          <input type="text" onChange={HandleLocation} placeholder='enter a  location' />
-          <input type="text" onChange={HandleDestination} placeholder='enter a  destination' />
-          <input type="text" onChange={HandleDriver}  placeholder='enter a driver'/>
+        <form className='RideForm' onSubmit={HandleBooking}>
+          <h2>Where Do You want to go</h2>
+          <input type="text" onChange={HandleLocation} placeholder='enter a  location' /><br />
+          <input type="text" onChange={HandleDestination} placeholder='enter a  destination' /><br />
+          <input type="text" onChange={HandleDriver}  placeholder='enter a driver'/><br />
           <button>Book a ride</button>
         </form>
+        <ul>
+          
+              <li  className='list-none RideLi justify-center w-full '>
+                <span  className='RideItemTitle'>Driver </span>
+                <span  className='RideItemTitle'>Cutomer  </span>
+                <span  className='RideItemTitle'> location </span>
+                <span  className='RideItemTitle'>destination</span>
+                <Link to={`/edit/`} className='Link'>Action</Link>
+              </li>
+        </ul>
+               
         {data.map((item,index)=>{
 
             return  (
                 <>
               <ul className=' list-none  '>  
-              <li key={index} className='list-none flex justify-center w-full '>
-                <span key={index} className='px-2 bg-amber-400'>  {item.driver} </span>
-                <span key={index} className='px-2 bg-amber-400'>{item.customer}  </span>
-                <span key={index} className='px-2 bg-amber-400'>{item.pick_up_at}  </span>
-                <span key={index} className='px-2 bg-amber-400'>{item.drop_off_at}</span>
-                <span key={index} className='px-2 bg-amber-400'>{item.ride_time}</span>
-                <Link to={`/edit/${item._id}`}>Update</Link>
-                <Link to={`/delete/${item._id}`}>delete</Link>
+              <li key={index} className='list-none RideLi justify-center w-full '>
+                <span  className='RideItem'>  {item.driver} </span>
+                <span  className='RideItem'>{item.customer}  </span>
+                <span  className='RideItem'>{item.pick_up_at}  </span>
+                <span  className='RideItem'>{item.drop_off_at}</span>
+                <Link to={`/edit/${item._id}`} className='LinkUpdate'>Update</Link>
+                <Link to={`/delete/${item._id}`} className='LinkDelete'>delete</Link>
               </li>
               
               </ul>

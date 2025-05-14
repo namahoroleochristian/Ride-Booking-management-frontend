@@ -11,7 +11,7 @@ function TopBar() {
         <ul>
             <li>
                 
-                <Link to={`/logout`}>logout</Link>
+                <Link to={`/logout`} className='Link'>logout</Link>
                 </li>
         </ul>
     </nav>

@@ -7,6 +7,8 @@ import Bookings from "../components/views/bookings";
 import Update from "../components/views/Update";
 import Delete from "../components/views/delete";
 import Logout from "../components/auth/Logout";
+import AuthBar from "../components/navbars/AuthBar";
+import AdminAuth from "../components/auth/AdminAuth";
 
 function RoutesPage() {
   return (
@@ -17,6 +19,7 @@ function RoutesPage() {
         <Route path="/edit/:id" element={<Update/>} />
         <Route path="/rides" element={<Bookings/>} />
         <Route path="/signup" element={<SignUp/>} />
+        <Route path="/admin" element={<AdminAuth/>} />
         <Route path="/logout" element={<Logout/>} />
         <Route path="/delete/:id" element={<Delete/>} />
     </Routes>

@@ -12,7 +12,7 @@ function Update() {
 
     const [Updatedata,setUpdatedata] = useState({
        driver:"",
-       customer:"",
+       customer:localStorage.getItem('name'),
        pick_up_at:"",
        drop_off_at:""
     });
@@ -25,12 +25,12 @@ function Update() {
         }))
 
     }
-    const Handlecustomer = (e)=>{
-setUpdatedata((PrevData)=>({
-    ...PrevData,
-   customer :e.target.value
-}))
-    }
+//     const Handlecustomer = (e)=>{
+// setUpdatedata((PrevData)=>({
+//     ...PrevData,
+//    customer :e.target.value
+// }))
+    // }
     const Handlelocation = (e)=>{
 
         setUpdatedata((PrevData)=>({
@@ -58,7 +58,7 @@ setUpdatedata((PrevData)=>({
                 console.log(Updatedata);
                 console.log(id);
                 const ids="6823d94c50769f111ec2ed6c";
-                const response = await fetch(`http://localhost:5002/update/ride/${ids}`,{
+                const response = await fetch(`http://localhost:5002/update/ride/${id}`,{
                         method:"PUT",
                         headers: {"Content-Type":'Application/json'},
                         body:JSON.stringify(Updatedata)
@@ -81,16 +81,16 @@ setUpdatedata((PrevData)=>({
   return (
     <>
     <TopBar/>
-    <form onSubmit={HandleUpdate}>
+    <form className='RideForm  ' onSubmit={HandleUpdate}>
         
         <label >driver</label><br />
-        <input type="text"  onChange={Handledriver}  /><br />
-        <label >customer</label><br />
-        <input type="text"  onChange={Handlecustomer}  /><br />
+        <input type="text"  onChange={Handledriver} placeholder='enter new driver' /><br />
+        {/* <label >customer</label><br />
+        <input type="text"   onChange={Handlecustomer} placeholder='enter new ' /><br /> */}
         <label >location</label><br />
-        <input type="text"  onChange={Handlelocation}  /><br />
+        <input type="text"  onChange={Handlelocation} placeholder='enter new location' /><br />
         <label >destination</label><br />
-        <input type="text"  onChange={Handledestination}  /><br />
+        <input type="text"  onChange={Handledestination} placeholder='enter new destination' /><br />
         
         
         <button type='submit'> Update</button>

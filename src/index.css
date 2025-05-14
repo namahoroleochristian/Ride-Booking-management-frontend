@@ -1,1 +1,160 @@
-@import 'tailwindcss';
+*{
+    margin: 0;
+    font-family: monospace;
+    /* text-decoration: underline; */
+    font-size: large;
+    list-style: none; 
+}
+body{
+    background: #7a7a7a;
+}
+nav ul li{
+ list-style: none;
+ padding: 10px;
+}
+nav ul{
+    list-style: none; 
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.Link{
+text-decoration: none;
+
+}
+.Link:hover{
+text-decoration: none;
+scale: 1.2;
+transition-duration: 200ms;
+
+}
+
+nav{
+    background-color: rgb(255, 255, 255);
+ 
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+   
+}
+.RideItem{
+    width: 20%;
+justify-content: space-evenly;
+}
+.RideLi{
+    
+    display: flex;
+  justify-content: space-between;
+    height: 5vh;
+    margin-top: 2px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 15%;
+    margin-right:15% ;
+    width: 70%;
+    padding: 10px;
+
+}
+.RideForm{
+    display: block;
+    background: #fff;
+    padding: 2%;
+    width: 60%;
+    height: 40vh;
+    margin-left: 20%;
+    margin-right:20% ; 
+    margin-top: 2vh;
+    
+    border-radius: 10px;
+}
+.RideForm input{
+    width: 100%;
+    border: 2px solid lightcyan;
+    box-shadow: solid black;
+    margin-top: 1.5vh;
+    border-radius: 10px;
+    height: 5vh;
+    outline: none;
+}
+.RideForm input:focus{
+    width: 100%;
+    border: 4px solid rgba(185, 185, 185, 0.432);
+    box-shadow: solid black;
+    padding: 5px;
+    transition-duration: 200ms;
+}
+.RideForm button:hover{
+    scale: 1.1;
+    transition-duration: 400ms;
+    
+}
+.RideForm h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+    font-size: xx-large;
+    margin-left: 25%;
+    margin-right:25% ;
+}
+.RideForm button{
+
+    width: 60%;
+    color: #fff;
+    border: none;
+    background: #000;
+    border-radius: 10px;
+    margin-top: 1.5vh;
+    margin-right: 20%;
+    margin-left: 20%; 
+    height  : 7vh;
+    cursor: pointer;
+}
+.RideItemTitle{
+    width: 20%;
+    font-weight: bold;
+    font-size: larger;
+}
+.LinkUpdate:hover{
+    scale: 1.2;
+}
+.LinkUpdate{
+     display: flex;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  justify-content: space-between;
+    height: 4vh;
+ padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(4, 40, 95);
+    
+   
+}
+.LinkDelete:hover{
+    scale: 1.2;
+}
+.LinkDelete{
+     display: flex;
+     text-decoration: none;
+     color: rgb(241, 163, 163);
+     font-weight: bold;
+     justify-content: space-between;
+     height: 4vh;
+     padding: 5px;
+     border-radius: 5px;
+    background-color: rgb(187, 33, 33);
+    
+   
+}
+.NavUl{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    margin-right: 5%;
+
+}

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import AuthBar from "../navbars/AuthBar";
 
-function Login() {
+function AdminAuth() {
   const navigate = useNavigate();
   useEffect(()=>{
     if (localStorage.getItem('isAuthenticated') === 'true') {
@@ -13,6 +13,7 @@ function Login() {
   },[navigate])
   const [User,setUser] = useState({
     name:'',
+    role:'Admin',
     password:''
   });
   const HandleName = (e)=>{
@@ -30,18 +31,19 @@ function Login() {
   const HandleSubmit = async (e)=>{
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5002/login/user',User)
+      const response = await axios.post('http://localhost:5002/login/admin',User)
       
         if (response.status == 202) {
           localStorage.setItem('isAuthenticated',true)
           const data = await response.data.user
           localStorage.setItem('name',data)
+          localStorage.setItem('role','Admin')
           
 
         }
         
       
-      navigate('/home')
+      navigate('/Admin')
       
     }
     catch(error) {
@@ -58,15 +60,16 @@ function Login() {
     <AuthBar/>
     
     <form onSubmit={HandleSubmit} className="RideForm">
+        <h2>Login</h2>
         <label >Username</label>
         <input type="text" onChange={HandleName} placeholder='enter User name' />
         <label >Pasword</label>
         <input type="password" onChange={HandlePassword} placeholder='enter User Password' />
         <button type="submit">Login</button>
-        <p>don't have an account <Link to='/signup'>Signup</Link></p>
+        {/* <p>don't have an account <Link to='/signup'>Signup</Link></p> */}
     </form>
     </>
   )
 }
 
-export default Login
+export default AdminAuth
